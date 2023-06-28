@@ -4,6 +4,7 @@
 
 package io.flutter.plugins.webviewflutter;
 
+import android.os.Build;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import androidx.annotation.NonNull;
@@ -30,7 +31,12 @@ public class WebSettingsHostApiImpl implements WebSettingsHostApi {
      */
     @NonNull
     public WebSettings createWebSettings(@NonNull WebView webView) {
-      return webView.getSettings();
+      WebSettings webSettings = webView.getSettings();
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
+              webSettings.getMixedContentMode() != WebSettings.MIXED_CONTENT_ALWAYS_ALLOW) {
+        webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+      }
+      return webSettings;
     }
   }
 
