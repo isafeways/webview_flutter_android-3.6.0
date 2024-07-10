@@ -97,6 +97,13 @@ public class WebSettingsHostApiImpl implements WebSettingsHostApi {
     webSettings.setMediaPlaybackRequiresUserGesture(require);
   }
 
+    @Override
+    public void setCacheMode(
+            @NonNull Long instanceId, @NonNull Integer mode) {
+        final WebSettings webSettings = Objects.requireNonNull(instanceManager.getInstance(instanceId));
+        webSettings.setCacheMode(mode);
+    }
+
   @Override
   public void setSupportZoom(@NonNull Long instanceId, @NonNull Boolean support) {
     final WebSettings webSettings = Objects.requireNonNull(instanceManager.getInstance(instanceId));

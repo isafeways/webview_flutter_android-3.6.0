@@ -464,6 +464,18 @@ class WebSettingsHostApiImpl extends WebSettingsHostApi {
   }
 
   /// Helper method to convert instances ids to objects.
+  Future<void> setCacheModeFromInstance(
+      WebSettings instance,
+      int mode,
+      ) {
+    return setCacheMode(
+      instanceManager.getIdentifier(instance)!,
+      mode,
+    );
+  }
+
+
+  /// Helper method to convert instances ids to objects.
   Future<void> setSupportZoomFromInstance(
     WebSettings instance,
     bool support,

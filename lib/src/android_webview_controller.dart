@@ -411,6 +411,11 @@ class AndroidWebViewController extends PlatformWebViewController {
     return _webView.settings.setMediaPlaybackRequiresUserGesture(require);
   }
 
+  /// Sets the restrictions that apply on automatic media playback.
+  Future<void> setCacheMode(int mode) {
+    return _webView.settings.setCacheMode(mode);
+  }
+
   /// Sets the text zoom of the page in percent.
   ///
   /// The default is 100.

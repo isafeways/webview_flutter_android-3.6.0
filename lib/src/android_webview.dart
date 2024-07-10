@@ -533,6 +533,13 @@ class WebSettings extends JavaObject {
     return api.setMediaPlaybackRequiresUserGestureFromInstance(this, require);
   }
 
+  /// Sets whether the WebView requires a user gesture to play media.
+  ///
+  /// The default is true.
+  Future<void> setCacheMode(int mode) {
+    return api.setCacheModeFromInstance(this, mode);
+  }
+
   // TODO(bparrishMines): Update documentation when WebView.zoomIn and WebView.zoomOut are added.
   /// Sets whether the WebView should support zooming using its on-screen zoom controls and gestures.
   ///
